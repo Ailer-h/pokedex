@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+*{
+
+    margin: 0;
+    padding: 0;
+    font-family: "Anta", Arial, Helvetica, sans-serif;
+
+}
+
+body{
+
+    background-color: #f6f0e0;
+
+}
+
+/* Navbar classes */
+.nav{
+    height: 6em;
+    background-color: #ce4f4e;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 2em;
+    padding-right: 2em;
+
+}
+
+.nav .title{
+
+    width: 20em;
+    height: 5em;
+
+}
+
+.nav .logo{
+
+    width: 4em;
+    height: 4em;
+
+    border-radius: 10em;
+
+    background-color: #f6f0e0;
+
+}
+
+.nav .logo img{
+
+    width: 4em;
+    height: 4em;
+
+}
+/* End of navbar classes */
+
+/* Body classes */
+hr{
+
+    height: .5em;
+    background-color: #ce4f4e;
+
+}
+
+.center{
+
+    height: 50em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center .form{
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    background-color: #ce4f4e;
+
+    width: 40em;
+    min-height: 40em;
+
+    border-radius: 1.5em;
+
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    box-shadow: .5em .5em 1em black;
+
+}
+
+.center .form label{
+
+    margin-top: 1em;
+    margin-bottom: .2em;
+    font-size: 1.5em;
+
+}
+
+.center .form input[type="file"]{
+
+    margin-top: 1em;
+    margin-bottom: .2em;
+
+    width: 10em;
+
+    background-color: blue;
+
+}
+
+.center .form input[type="submit"]{
+
+    margin-top: 1em;
+    margin-bottom: .2em;
+
+    width: 10em;
+    height: 3em;
+
+    border: .2em solid #375daa;
+    border-radius: 3em;
+
+    font-size: 1.2em;
+    background-color: #f9d00d;
+
+    transition: 200ms;
+
+}
+
+.center .form input[type="submit"]:hover{
+
+    transition: 200ms;
+    transform: scale(1.1);
+    background-color: #d6b40a;
+
+}
+
+.center .form input[type="text"], input[type="number"], select{
+    width: 25em;
+    height: 2em;
+}
+
+.center .form .title-box{
+
+    width: 35em;
+    height: 5em;
+
+    background-color: white;
+    border-radius: 3em;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.center .form .title-box h1{
+
+    font-size: 3.5em;
+
+}
+
+
+.center .form .title-box img{
+
+    width: 5em;
+    height: 5em;
+
+}
+/* End of body class */
