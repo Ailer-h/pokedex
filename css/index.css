@@ -47,24 +47,28 @@ body{
 }
 
 .nav .logo img{
-
+    
     width: 4em;
     height: 4em;
+    
+    transition: 200ms;
+    
+}
+
+.nav .logo img:hover{
+
+    transform: scale(1.2);
+    transition: 200ms;
 
 }
 /* End of navbar classes */
 
 /* Body classes */
-hr{
-
-    height: .5em;
-    background-color: #ce4f4e;
-
-}
-
 .center{
 
-    height: 50em;
+    min-height: 50em;
+    padding-top: 2em;
+    padding-bottom: 2em;
 
     display: flex;
     align-items: center;
@@ -99,17 +103,6 @@ hr{
 
 }
 
-.center .form input[type="file"]{
-
-    margin-top: 1em;
-    margin-bottom: .2em;
-
-    width: 10em;
-
-    background-color: blue;
-
-}
-
 .center .form input[type="submit"]{
 
     margin-top: 1em;
@@ -137,8 +130,19 @@ hr{
 }
 
 .center .form input[type="text"], input[type="number"], select{
+
+    border: none;
+    padding-left: .3em;
+
+    border-radius: .5em;
+
     width: 25em;
     height: 2em;
+}
+
+.center .form select option{
+    background-color: white;
+    color: black;
 }
 
 .center .form .title-box{

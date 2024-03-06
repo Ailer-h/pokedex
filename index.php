@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" href="images/pokeball.png" type="image/x-icon">
     <title>Pokédex</title>
 </head>
 <body>
+
     <div class="nav">
         <img src="images/pokedex.png" class="title">
-        <div class="logo"><img src="images/pokeball.png"></div>
+        <div class="logo">
+            <a href="html/pokemons.php"><img src="images/pokeball.png"></a>
+        </div>
     </div>
 
     <div class="center">
@@ -32,10 +36,13 @@
                 <input type="text" name="peso" id="peso" required>
 
                 <label for="geracao">Geração:</label>
-                <input type="number" min="1" step="1" name="geracao" id="geracao" oninput="int_js()" required>
+                <input type="number" min="1" max="9" step="1" name="geracao" id="geracao" oninput="int_js()" required>
+
+                <label for="geracao">Número na Pokedéx:</label>
+                <input type="number" min="1" max="1025" step="1" name="geracao" id="geracao" oninput="int_js()" required>
 
                 <label for="type1">Tipo 1:</label>
-                <select name="type1" id="type" required>
+                <select name="type1" id="type1" required>
                     <option value="" selected hidden>Tipo...</option>
                     <option value="0">Normal</option>
                     <option value="1">Fogo</option>
@@ -58,7 +65,7 @@
                 </select>
 
                 <label for="type2">Tipo 2:</label>
-                <select name="type2" id="type2">
+                <select name="type2" id="type2" oninput="changeColour(this.value,'type2')">
                     <option value="" selected hidden>Tipo...</option>
                     <option value="0">Normal</option>
                     <option value="1">Fogo</option>
@@ -85,8 +92,6 @@
             </div>
         </form>
     </div>
-
-    <hr>
 
 </body>
 <script src="js/functions.js"></script>
