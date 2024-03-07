@@ -15,7 +15,7 @@
         if(isset($_POST['type2'])){
             $tipo_2 = $_POST['type2'];
         }
-
+        
         $query = mysqli_query($conection, "insert into pokemons(nome,altura_cm,peso_kg,geracao,n_pokedex,tipo_1,tipo_2) values('$nome','$altura','$peso','$gen','$n_pokedex','$tipo_1','$tipo_2')");
         mysqli_close($conection);
 

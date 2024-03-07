@@ -1,3 +1,54 @@
+<?php
+
+    if(isset($_POST['delete'])){
+        $id = $_POST['id'];
+
+        delete($id);
+    }
+
+    function delete($index){
+
+        include "mySQL_connect.php";
+
+        $query = mysqli_query($conection, "delete from pokemons where poke_index = $index");
+        mysqli_close($conection);
+
+    }
+
+    function table($busca){
+
+        include "mySQL_connect.php";
+
+        $query = mysqli_query($conection, "select * from pokemons where nome like \"%$busca%\" group by 1");
+
+        while($output = mysqli_fetch_array($query)){
+            
+            echo "<tr>";
+            
+            echo "<td>$output[0]</td>";
+            echo "<td>$output[1]</td>";
+            echo "<td>$output[2]</td>";
+            echo "<td>$output[3]</td>";
+            echo "<td>$output[4]</td>";
+            echo "<td>$output[5]</td>";
+            echo "<td><div>
+                    <div class='$output[6]'>$output[6]</div>
+                    <div class='$output[7]'>$output[7]</div>
+                </div></td>";
+
+            echo "<td><form method='post' action='pokemons.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='delete' value='Deletar' class='delete'></form></td>";
+            echo "<td><form method='post' action='edit.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='edit' value='Editar' class='edit'></form></td>";
+
+            echo "</tr>";
+
+        }
+
+        mysqli_close($conection);
+
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +67,7 @@
 
     <div class="center">
         <div class="filter">
-            <form action="post">
+            <form action="pokemon.php" method="post">
                 <select name="type1" id="type">
                     <option value="" selected hidden>Tipo...</option>
                     <option value="0">Normal</option>
@@ -41,28 +92,35 @@
             
                 <input type="number" placeholder="Geração" min="1" max="9" step="1" name="geracao" id="geracao" oninput="int_js()">
 
-                <input type="number" placeholder="Nº Pokedéx" min="1" max="1025" step="1" name="geracao" id="geracao" oninput="int_js()">
-
-                <input type="submit" value="Filtrar">
+                <input type="submit" name="filter" value="Filtrar">
             
             </form>
         </div>
+
+        <form action="pokemons.php" method="post">
+            <div class="table-search">
+                <input type="text" name="search" id="search" placeholder="Pesquisar...">
+                <input type="submit" name="buscar" value="🔎︎">
+            </div>
+            
+        </form>
 
         <div class="table-holder">
             <table>
                 <tr><th>Indice</th><th>Nome</th><th>Altura</th><th>Peso</th><th>Geração</th><th>Nº na Pokedéx</th><th>Tipos</th></tr>
 
-                <tr>
-                    <td>1</td>
-                    <td>Charmander</td>
-                    <td>170</td>
-                    <td>40</td>
-                    <td>1</td>
-                    <td>4</td>
-                    <td>Fogo no cu</td>
-                    <td><button>Deletar</button></td>
-                    <td><button>Editar</button></td>
-                </tr>
+                <?php
+                    if(isset($_POST['buscar'])){
+                        table($_POST['search']);
+                    
+                    }else if(isset($_POST['filter'])){
+                        
+
+                    }else{
+                        table("");
+                    
+                    }
+                ?>
 
             </table>
         </div>
