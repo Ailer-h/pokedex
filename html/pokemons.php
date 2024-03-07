@@ -1,6 +1,6 @@
 <?php
 
-    if(isset($_POST['delete'])){
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])){
         $id = $_POST['id'];
 
         delete($id);
@@ -102,12 +102,11 @@
                 <input type="text" name="search" id="search" placeholder="Pesquisar...">
                 <input type="submit" name="buscar" value="🔎︎">
             </div>
-            
         </form>
 
         <div class="table-holder">
             <table>
-                <tr><th>Indice</th><th>Nome</th><th>Altura</th><th>Peso</th><th>Geração</th><th>Nº na Pokedéx</th><th>Tipos</th></tr>
+                <tr><th></th><th>Nome</th><th>Altura (cm)</th><th>Peso (kg)</th><th>Geração</th><th>Nº na Pokedéx</th><th>Tipos</th></tr>
 
                 <?php
                     if(isset($_POST['buscar'])){

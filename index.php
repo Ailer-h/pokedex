@@ -56,10 +56,10 @@
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome" oninput="letters_js(this.value,this)" required>
 
-                <label for="altura">Altura:</label>
+                <label for="altura">Altura (em cm):</label>
                 <input type="number" min="1" name="altura" id="altura" oninput="int_js(this.value,this)" required>
 
-                <label for="peso">Peso:</label>
+                <label for="peso">Peso (em kg):</label>
                 <input type="number" min="1" name="peso" step="any" id="peso" required>
 
                 <label for="geracao">Geração:</label>
