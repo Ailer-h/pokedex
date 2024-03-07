@@ -60,6 +60,8 @@
                     <td>1</td>
                     <td>4</td>
                     <td>Fogo no cu</td>
+                    <td><button>Deletar</button></td>
+                    <td><button>Editar</button></td>
                 </tr>
 
             </table>

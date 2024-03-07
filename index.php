@@ -1,3 +1,30 @@
+<?php
+
+    include "html/mySQL_connect.php";
+
+    if(isset($_POST['cadastrar'])){
+
+        $nome = $_POST['nome'];
+        $altura = $_POST['altura'];
+        $peso = $_POST['peso'];
+        $gen = $_POST['geracao'];
+        $n_pokedex = $_POST['n_pokedex'];
+        $tipo_1 = $_POST['type1'];
+        $tipo_2 = NULL;
+
+        if(isset($_POST['type2'])){
+            $tipo_2 = $_POST['type2'];
+        }
+
+        $query = mysqli_query($conection, "insert into pokemons(nome,altura_cm,peso_kg,geracao,n_pokedex,tipo_1,tipo_2) values('$nome','$altura','$peso','$gen','$n_pokedex','$tipo_1','$tipo_2')");
+        mysqli_close($conection);
+
+    }
+
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,64 +57,64 @@
                 <input type="text" name="nome" id="nome" oninput="letters_js(this.value,this)" required>
 
                 <label for="altura">Altura:</label>
-                <input type="text" name="altura" id="altura" required>
+                <input type="number" min="1" name="altura" id="altura" oninput="int_js(this.value,this)" required>
 
                 <label for="peso">Peso:</label>
-                <input type="text" name="peso" id="peso" required>
+                <input type="number" min="1" name="peso" step="any" id="peso" required>
 
                 <label for="geracao">Geração:</label>
-                <input type="number" min="1" max="9" step="1" name="geracao" id="geracao" oninput="int_js()" required>
+                <input type="number" min="1" max="9" step="1" name="geracao" id="geracao" oninput="int_js(this.value,this)" required>
 
                 <label for="geracao">Número na Pokedéx:</label>
-                <input type="number" min="1" max="1025" step="1" name="geracao" id="geracao" oninput="int_js()" required>
+                <input type="number" min="1" max="1025" step="1" name="n_pokedex" id="n_pokedex" oninput="int_js(this.value,this)" required>
 
                 <label for="type1">Tipo 1:</label>
                 <select name="type1" id="type1" required>
                     <option value="" selected hidden>Tipo...</option>
-                    <option value="0">Normal</option>
-                    <option value="1">Fogo</option>
-                    <option value="2">Água</option>
-                    <option value="3">Elétrico</option>
-                    <option value="4">Grama</option>
-                    <option value="5">Gelo</option>
-                    <option value="6">Lutador</option>
-                    <option value="7">Veneno</option>
-                    <option value="8">Terrestre</option>
-                    <option value="9">Voador</option>
-                    <option value="10">Psiquico</option>
-                    <option value="11">Inseto</option>
-                    <option value="12">Pedra</option>
-                    <option value="13">Fantasma</option>
-                    <option value="14">Dragão</option>
-                    <option value="15">Sombrio</option>
-                    <option value="16">Aço</option>
-                    <option value="17">Fada</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Fogo">Fogo</option>
+                    <option value="Água">Água</option>
+                    <option value="Elétrico">Elétrico</option>
+                    <option value="Grama">Grama</option>
+                    <option value="Gelo">Gelo</option>
+                    <option value="Lutador">Lutador</option>
+                    <option value="Veneno">Veneno</option>
+                    <option value="Terrestre">Terrestre</option>
+                    <option value="Voador">Voador</option>
+                    <option value="Psiquico">Psiquico</option>
+                    <option value="Inseto">Inseto</option>
+                    <option value="Pedra">Pedra</option>
+                    <option value="Fantasma">Fantasma</option>
+                    <option value="Dragão">Dragão</option>
+                    <option value="Sombrio">Sombrio</option>
+                    <option value="Aço">Aço</option>
+                    <option value="Fada">Fada</option>
                 </select>
 
                 <label for="type2">Tipo 2:</label>
-                <select name="type2" id="type2" oninput="changeColour(this.value,'type2')">
+                <select name="type2" id="type2">
                     <option value="" selected hidden>Tipo...</option>
-                    <option value="0">Normal</option>
-                    <option value="1">Fogo</option>
-                    <option value="2">Água</option>
-                    <option value="3">Elétrico</option>
-                    <option value="4">Grama</option>
-                    <option value="5">Gelo</option>
-                    <option value="6">Lutador</option>
-                    <option value="7">Veneno</option>
-                    <option value="8">Terrestre</option>
-                    <option value="9">Voador</option>
-                    <option value="10">Psiquico</option>
-                    <option value="11">Inseto</option>
-                    <option value="12">Pedra</option>
-                    <option value="13">Fantasma</option>
-                    <option value="14">Dragão</option>
-                    <option value="15">Sombrio</option>
-                    <option value="16">Aço</option>
-                    <option value="17">Fada</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Fogo">Fogo</option>
+                    <option value="Água">Água</option>
+                    <option value="Elétrico">Elétrico</option>
+                    <option value="Grama">Grama</option>
+                    <option value="Gelo">Gelo</option>
+                    <option value="Lutador">Lutador</option>
+                    <option value="Veneno">Veneno</option>
+                    <option value="Terrestre">Terrestre</option>
+                    <option value="Voador">Voador</option>
+                    <option value="Psiquico">Psiquico</option>
+                    <option value="Inseto">Inseto</option>
+                    <option value="Pedra">Pedra</option>
+                    <option value="Fantasma">Fantasma</option>
+                    <option value="Dragão">Dragão</option>
+                    <option value="Sombrio">Sombrio</option>
+                    <option value="Aço">Aço</option>
+                    <option value="Fada">Fada</option>
                 </select>
        
-                <input type="submit" value="Cadastrar">
+                <input type="submit" name="cadastrar" value="Cadastrar">
        
             </div>
         </form>

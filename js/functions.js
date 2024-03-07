@@ -1,18 +1,18 @@
-//Limita a somente integers
-function int_js(){
+console.log("Running...")
 
-    if(event.key === "." || event.key === ","){
-        event.preventDefault();
-        event.target.value = event.target.value.replace(/[^0-9]*/g,'');
-    }
+//Limita a somente integers
+function int_js(valor, input){
+
+    valor = valor.toString().replace(/\D/g,"");
+
+    document.getElementById(input.id).value = valor;
 
 }
 
 //Permite apenas letras
 function letters_js(valor, input){
 
-    valor = valor.toString();
-    valor = valor.replace(/\d/g,"");
+    valor = valor.toString().replace(/\d/g,"");
 
     document.getElementById(input.id).value = valor;
 
