@@ -99,7 +99,11 @@ body{
 
 }
 
-.center .filter form input[type="submit"]{
+.center .filter form input[type="number"]:focus, select:focus{
+    outline: none;
+}
+
+.center .filter form input[type="submit"], button{
 
     width: 5em;
     height: 1.5em;
@@ -114,7 +118,7 @@ body{
 
 }
 
-.center .filter form input[type="submit"]:hover{
+.center .filter form input[type="submit"]:hover, button:hover{
 
     transition: 200ms;
     transform: scale(1.1);
@@ -157,6 +161,10 @@ body{
     border: none;
     padding-left: .3em;
 
+}
+
+.center .table-search input[type="text"]:focus{
+    outline: none;
 }
 
 .center .table-search input[type="submit"]{

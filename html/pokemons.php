@@ -15,6 +15,74 @@
 
     }
 
+
+    function filter($s_filter){
+
+        include "mySQL_connect.php";
+
+        // echo 'select * from pokemons where '.$s_filter;
+        $query = mysqli_query($conection, "select * from pokemons where ".$s_filter);
+
+        while($output = mysqli_fetch_array($query)){
+            
+            echo "<tr>";
+            
+            echo "<td>$output[0]</td>";
+            echo "<td>$output[1]</td>";
+            echo "<td>$output[2]</td>";
+            echo "<td>$output[3]</td>";
+            echo "<td>$output[4]</td>";
+            echo "<td>$output[5]</td>";
+            echo "<td><div>
+                    <div class='$output[6]'>$output[6]</div>
+                    <div class='$output[7]'>$output[7]</div>
+                </div></td>";
+
+            echo "<td><form method='post' action='pokemons.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='delete' value='Deletar' class='delete'></form></td>";
+            echo "<td><form method='post' action='edit.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='edit' value='Editar' class='edit'></form></td>";
+
+            echo "</tr>";
+
+        }
+
+        mysqli_close($conection);
+    }
+
+    function get_filter(){
+
+        $tipo = "";
+        $gen = "";
+        $where = "1";
+
+        if(isset($_POST['geracao']) && $_POST['geracao'] != "" && isset($_POST['type']) && $_POST['type'] != ""){
+            $gen = $_POST['geracao'];
+            $tipo = $_POST['type'];
+
+            $where = "geracao='".$gen."' and tipo_1='".$tipo."' or tipo_2='".$tipo."' group by 1";
+
+
+        }else{
+
+            if(isset($_POST['geracao'])){
+                $gen = $_POST['geracao'];
+
+                $where = "geracao='".$gen."' group by 1";
+            
+            }
+
+            if(isset($_POST['type']) && $_POST['type'] != ""){
+                $tipo = $_POST['type'];
+    
+                $where = "tipo_1='".$tipo."' or tipo_2='".$tipo."' group by 1";
+
+            }
+
+        }
+
+        return $where;
+
+    }
+
     function table($busca){
 
         include "mySQL_connect.php";
@@ -67,34 +135,36 @@
 
     <div class="center">
         <div class="filter">
-            <form action="pokemon.php" method="post">
-                <select name="type1" id="type">
+            <form action="pokemons.php" method="post">
+                <select name="type" id="type">
                     <option value="" selected hidden>Tipo...</option>
-                    <option value="0">Normal</option>
-                    <option value="1">Fogo</option>
-                    <option value="2">Água</option>
-                    <option value="3">Elétrico</option>
-                    <option value="4">Grama</option>
-                    <option value="5">Gelo</option>
-                    <option value="6">Lutador</option>
-                    <option value="7">Veneno</option>
-                    <option value="8">Terrestre</option>
-                    <option value="9">Voador</option>
-                    <option value="10">Psiquico</option>
-                    <option value="11">Inseto</option>
-                    <option value="12">Pedra</option>
-                    <option value="13">Fantasma</option>
-                    <option value="14">Dragão</option>
-                    <option value="15">Sombrio</option>
-                    <option value="16">Aço</option>
-                    <option value="17">Fada</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Fogo">Fogo</option>
+                    <option value="Água">Água</option>
+                    <option value="Elétrico">Elétrico</option>
+                    <option value="Grama">Grama</option>
+                    <option value="Gelo">Gelo</option>
+                    <option value="Lutador">Lutador</option>
+                    <option value="Veneno">Veneno</option>
+                    <option value="Terrestre">Terrestre</option>
+                    <option value="Voador">Voador</option>
+                    <option value="Psiquico">Psiquico</option>
+                    <option value="Inseto">Inseto</option>
+                    <option value="Pedra">Pedra</option>
+                    <option value="Fantasma">Fantasma</option>
+                    <option value="Dragão">Dragão</option>
+                    <option value="Sombrio">Sombrio</option>
+                    <option value="Aço">Aço</option>
+                    <option value="Fada">Fada</option>
                 </select>
             
                 <input type="number" placeholder="Geração" min="1" max="9" step="1" name="geracao" id="geracao" oninput="int_js()">
 
                 <input type="submit" name="filter" value="Filtrar">
             
+                <a href="pokemons.php"><button>Limpar</button></a>
             </form>
+
         </div>
 
         <form action="pokemons.php" method="post">
@@ -113,7 +183,8 @@
                         table($_POST['search']);
                     
                     }else if(isset($_POST['filter'])){
-                        
+                        $str_filter = get_filter();
+                        filter($str_filter);
 
                     }else{
                         table("");
