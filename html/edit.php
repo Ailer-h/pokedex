@@ -57,7 +57,9 @@
                     <div class='form'>
                         <div class='title-box'>
                             <img src='../images/pokeball.png'>
+                            
                             <h1>Editar</h1>
+
                             <img src='../images/pokeball.png'>
                         </div>
 
@@ -122,7 +124,9 @@
                         </select>
 
                         <input type='submit' name='salvar' value='Salvar'>
-
+                        
+                        <a href='pokemons.php'><div class='cancelar'>Cancelar</div></a>
+                        
                     </div>
                 </form>
             </div>";
@@ -131,7 +135,7 @@
                 document.querySelector('#type1').value = '$values[6]';
 
                 document.querySelector('#type2').value = '$values[7]';
-            </script>";
+            </script>"; 
     ?>
 
 </body>

@@ -38,7 +38,7 @@
                     <div class='$output[7]'>$output[7]</div>
                 </div></td>";
 
-            echo "<td><form method='post' action='pokemons.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='delete' value='Deletar' class='delete'></form></td>";
+            echo "<td><form method='post' action='pokemons.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='confirm' value='Deletar' class='delete'></form></td>";
             echo "<td><form method='post' action='edit.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='edit' value='Editar' class='edit'></form></td>";
 
             echo "</tr>";
@@ -104,7 +104,8 @@
                     <div class='$output[7]'>$output[7]</div>
                 </div></td>";
 
-            echo "<td><form method='post' action='pokemons.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='delete' value='Deletar' class='delete'></form></td>";
+                
+            echo "<td><form method='post' action='pokemons.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='confirm' value='Deletar' class='delete'></form></td>";
             echo "<td><form method='post' action='edit.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='edit' value='Editar' class='edit'></form></td>";
 
             echo "</tr>";
@@ -196,6 +197,28 @@
         </div>
     </div>
 
+    <div id="delbox">
+    <div class='center-absolute'>
+    <form action="pokemons.php" method="post">
+        <div class='confirm-delete'>
+                <h3>Deseja deletar as informações de [NOME]?</h3>
+                <div class='btns'>
+                    <form action='pokemons.php'><input type='hidden' value='1'><input type='submit' value='Deletar' class='del'></form>
+                    <a href='pokemons.php'><div class='cancel'>Cancelar</div></a>
+                </div>
+            </div>
+    </form>    
+    </div>
+    </div>
+
 </body>
 <script src="../js/functions.js"></script>
 </html>
+
+<?php
+        
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])){
+            
+        }
+    
+    ?>

@@ -17,3 +17,9 @@ function letters_js(valor, input){
     document.getElementById(input.id).value = valor;
 
 }
+
+function del_box(){
+
+    document.getElementById("delbox").innerHTML = "<div class='center-absolute'><div class='confirm-delete'></div></div>"
+
+}

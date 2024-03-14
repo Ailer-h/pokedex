@@ -14,6 +14,13 @@ body{
 
 }
 
+a{
+
+    text-decoration: none;
+    color: black;
+
+}
+
 /* Navbar classes */
 .nav{
     height: 6em;
@@ -249,6 +256,78 @@ body{
 
 }
 /* End of the body classes */
+
+/* Delete box classes */
+
+.center-absolute{
+
+    position: absolute;
+    z-index: 2;
+    top: 6em;
+    
+    height: 35em;
+    width: 100%;
+    padding-bottom: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.confirm-delete{
+
+    width: 20em;
+    height: 18em;
+
+    background-color: #ce4f4e;
+
+    border-radius: 1.5em;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4em;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.confirm-delete .btns{
+
+    /* width: 10em; */
+    display: flex;
+    gap: 2em;
+
+}
+
+.confirm-delete .btns .del{
+
+    background-color: #d03c3c;
+    transition: 200ms;
+    border: none;
+
+}
+
+.confirm-delete .btns .cancel{
+
+    background-color: #375daa;
+    transition: 200ms;
+
+}
+
+.confirm-delete .btns .del:hover, .cancel:hover{
+
+    transform: scale(1.1);
+    transition: 200ms;
+
+}
+
+
+/* End of delete box classes */
 
 /* Classes dos tipos */
 .center table div{margin-top: .2em;}
