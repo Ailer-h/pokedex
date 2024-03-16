@@ -198,27 +198,32 @@
     </div>
 
     <div id="delbox">
-    <div class='center-absolute'>
-    <form action="pokemons.php" method="post">
-        <div class='confirm-delete'>
-                <h3>Deseja deletar as informações de [NOME]?</h3>
-                <div class='btns'>
-                    <form action='pokemons.php'><input type='hidden' value='1'><input type='submit' value='Deletar' class='del'></form>
-                    <a href='pokemons.php'><div class='cancel'>Cancelar</div></a>
-                </div>
-            </div>
-    </form>    
-    </div>
+        <?php
+        
+            if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])){
+                
+                include "mysql_connect.php";
+                $values = mysqli_fetch_array(mysqli_query($conection, "select * from pokemons where poke_index=".$_POST['id'].";"));
+                
+                echo"
+                <div class='center-absolute'>
+                <div class='head'></div>
+                <div class='confirm-delete'>
+                        <h3>Deseja deletar as informações de $values[1]?</h3>
+                        <div class='btns'>
+                            <form action='pokemons.php' method='post'><input type='hidden' name='id' value='".$_POST['id']."'><input type='submit' value='Deletar' name='delete' class='del'></form>
+                            <a href='pokemons.php'><input type='submit' value='Cancelar' class='cancel'></a>
+                        </div>
+                    </div>
+                </div>";
+
+                mysqli_close($conection);
+
+            }
+    
+        ?>
     </div>
 
 </body>
 <script src="../js/functions.js"></script>
 </html>
-
-<?php
-        
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm'])){
-            
-        }
-    
-    ?>

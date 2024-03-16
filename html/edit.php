@@ -135,7 +135,7 @@
                 document.querySelector('#type1').value = '$values[6]';
 
                 document.querySelector('#type2').value = '$values[7]';
-            </script>"; 
+            </script>";
     ?>
 
 </body>

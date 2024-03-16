@@ -276,14 +276,23 @@ a{
 
 }
 
-.confirm-delete{
+.center-absolute .head{
+
+    height: 3em;
+    width: 20em;
+    background-color: #ce4f4e;
+    border-radius: 1.5em 1.5em 0 0;
+
+}
+
+.center-absolute .confirm-delete{
 
     width: 20em;
-    height: 18em;
+    height: 15em;
 
-    background-color: #ce4f4e;
+    background-color: #d2cdbf;
 
-    border-radius: 1.5em;
+    border-radius: 0 0 1.5em 1.5em;
 
     display: flex;
     flex-direction: column;
@@ -296,35 +305,65 @@ a{
 
 }
 
-.confirm-delete .btns{
+.center-absolute .confirm-delete .btns{
 
     /* width: 10em; */
     display: flex;
     gap: 2em;
 
+
 }
 
-.confirm-delete .btns .del{
+.center-absolute .confirm-delete .btns .del{
 
-    background-color: #d03c3c;
+    background-color: transparent;
+    color: #ce4f4e;
+    border: .2em solid #d03c3c;
+    border-radius: .5em;
+
+    height: 1.9em;
+    width: 7.2em;
+
     transition: 200ms;
-    border: none;
 
 }
 
-.confirm-delete .btns .cancel{
+.center-absolute .confirm-delete .btns .cancel{
 
-    background-color: #375daa;
+    background-color: transparent;
+    color: #375daa;
+    border: .15em solid #375daa;
+    border-radius: .5em;
+
+    height: 1.9em;
+    width: 7.2em;
+
     transition: 200ms;
 
 }
 
-.confirm-delete .btns .del:hover, .cancel:hover{
+.center-absolute .confirm-delete .btns .del:hover{
 
     transform: scale(1.1);
     transition: 200ms;
 
+    background-color: #ce4f4e;
+    color: black;
+    border: none;
+
 }
+
+.center-absolute .confirm-delete .btns .cancel:hover{
+
+    transform: scale(1.1);
+    transition: 200ms;
+
+    background-color: #375daa;
+    color: black;
+    border: none;
+
+}
+
 
 
 /* End of delete box classes */
