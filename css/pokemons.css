@@ -274,6 +274,8 @@ a{
     justify-content: center;
     flex-direction: column;
 
+    backdrop-filter: blur(.3em);
+
 }
 
 .center-absolute .head{
@@ -363,9 +365,6 @@ a{
     border: none;
 
 }
-
-
-
 /* End of delete box classes */
 
 /* Classes dos tipos */
