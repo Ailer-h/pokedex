@@ -40,6 +40,7 @@
 
             echo "<td><form method='post' action='pokemons.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='confirm' value='Deletar' class='delete'></form></td>";
             echo "<td><form method='post' action='edit.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='edit' value='Editar' class='edit'></form></td>";
+            echo "<td><form method='post' action='print.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='print' value='Imprimir' class='print'></form></td>";
 
             echo "</tr>";
 
@@ -107,6 +108,7 @@
                 
             echo "<td><form method='post' action='pokemons.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='confirm' value='Deletar' class='delete'></form></td>";
             echo "<td><form method='post' action='edit.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='edit' value='Editar' class='edit'></form></td>";
+            echo "<td><form method='post' action='print.php'><input type='hidden' name='id' value='". $output[0] ."'> <input type='submit' name='print' value='Imprimir' class='print'></form></td>";
 
             echo "</tr>";
 

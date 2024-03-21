@@ -208,6 +208,20 @@ a{
 
 }
 
+.center table .print{
+
+    width: 5em;
+    height: 2em;
+
+    border: none;
+    border-radius: .5em;
+
+    background-color: #38E54D;
+
+    font-weight: bold;
+
+}
+
 .center table .delete{
 
     width: 5em;
@@ -238,7 +252,7 @@ a{
 
 }
 
-.center table .edit:hover, .delete:hover{
+.center table .edit:hover, .delete:hover, .print:hover{
 
     transform: scale(1.1);
     transition: 200ms;
